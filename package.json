@@ -1,0 +1,22 @@
+{
+    "name": "node-red-ckan",
+    "version": "1.0.0",
+    "description": "components to interact with a ckan catalogue",
+    "main": "node-red-ckan.js",
+    "keywords": [
+    "ckan",
+    "nodered"
+  ],
+    "author": "SINTEF-9012",
+    "license": "Apache-2.0",
+    "dependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SINTEF-9012/OTD-components.git"
+    },
+    "node-red": {
+        "nodes": {
+            "ckan-search": "ckan-search.js"
+        }
+    }
+}
