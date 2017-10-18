@@ -9,14 +9,16 @@
   ],
     "author": "SINTEF-9012",
     "license": "Apache-2.0",
-    "dependencies": {},
+    "dependencies": {
+        "ckan": "0.2.3"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/SINTEF-9012/OTD-components.git"
     },
     "node-red": {
         "nodes": {
-            "ckan-search": "ckan-search.js"
+            "ckan-search": "./src/ckan-search.js"
         }
     }
 }
