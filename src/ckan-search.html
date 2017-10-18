@@ -1,0 +1,72 @@
+<script type="text/x-red" data-template-name="ckan-search">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <br/>
+
+    <div class="form-row">
+        <label for="node-input-url"><i class="fa fa-tag"></i> URL</label>
+        <input type="text" id="node-input-url" placeholder="URL">
+    </div>
+
+    <br/>
+
+    <div class="form-row">
+        <label for="node-input-port"><i class="fa fa-tag"></i> Port</label>
+        <input type="text" id="node-input-port" placeholder="Port">
+    </div>
+
+    <br/>
+
+    <div class="form-row">
+        <label for="node-input-resource_id"><i class="fa fa-tag"></i> Resource ID</label>
+        <input type="text" id="node-input-resource_id" placeholder="resource_id">
+    </div>
+
+    <br/>
+
+    <div class="form-row">
+        <label for="node-input-q"><i class="fa fa-tag"></i> Query</label>
+        <input type="text" id="node-input-q" placeholder="q">
+    </div>
+</script>
+
+<!-- Next, some simple help text is provided for the node.                   -->
+<script type="text/x-red" data-help-name="ckan-search">
+    <p>This component can be used to trigger searches in a CKAN repository.</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ckan-search', {
+        category: 'ckan',
+        defaults: {
+            name: {
+                value: ""
+            },
+            url: {
+                value: ""
+            },
+            port: {
+                value: ""
+            },
+            resource_id: {
+                value: ""
+            },
+            q: {
+                value: ""
+            }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "icon-ckan.jpg",
+        color: "#FFFFFF",
+        label: function () {
+            return this.name || "ckan-search node";
+        },
+        labelStyle: function () {
+            return this.name ? "node_label_italic" : "";
+        }
+    });
+</script>

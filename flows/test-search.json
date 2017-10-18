@@ -1,0 +1,12 @@
+[{
+    "id": "8705d67d.ad9dc8",
+    "type": "function",
+    "z": "9103b931.05b058",
+    "name": "test",
+    "func": "var newMsg=msg;\nnewMsg.payload={};\nnewMsg.payload.q=\"Transport\";\nnewMsg.payload.resource_id=\"\";\nreturn newMsg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 333.5,
+    "y": 178,
+    "wires": [["b886a9e3.5c23a8", "7a1973fe.8fa8d4"]]
+}]
