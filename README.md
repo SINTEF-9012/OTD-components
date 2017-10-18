@@ -6,8 +6,8 @@ If you want to test the latest code from git, here's how to get started:
 
 1. Clone the code:
 
-        git clone https://github.com/SINTEF-9012/SIS-Framework-Deployer.git
-        cd SIS-Framework-Deployer
+        git clone https://github.com/SINTEF-9012/OTD-components.git
+        cd OTD-components
 
 2. Install the dependencies
 
