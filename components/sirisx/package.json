@@ -1,0 +1,20 @@
+{
+    "name": "node-red-sirisx",
+    "version": "1.0.0",
+    "description": "components to interact with with SIRI SX",
+    "keywords": [
+        "sirisx",
+        "nodered"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SINTEF-9012/OTD-components.git"
+    },
+    "author": "SINTEF-9012",
+    "license": "Apache-2.0",
+    "node-red": {
+        "nodes": {
+            "situations": "situations.js"
+        }
+    }
+}
