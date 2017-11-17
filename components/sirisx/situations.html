@@ -3,7 +3,8 @@
         category: 'SIRI SX',
         color: '#a6bbcf',
         defaults: {
-            name: {value:""}
+            name: {value:""},
+            url: {value:"https://sirisx.ruter.no/sx/"},
         },
         inputs:1,
         outputs:1,
@@ -17,10 +18,14 @@
 <script type="text/x-red" data-template-name="situations">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
+        <input type="text" id="node-input-name" placeholder="name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-url"><i class="icon-tag"></i> URL</label>
+        <input type="text" id="node-input-url" placeholder="url">
     </div>
 </script>
 
 <script type="text/x-red" data-help-name="situations">
-    <p>A simple node that converts the message payloads into all lower-case characters</p>
+    <p>A node makes a request to the Situations endpoint and adds additional information to the list with stops and lines of a route. It expexts {"stops" : [1232, 123123], "lines" : [234234, 234234]}</p>
 </script>
