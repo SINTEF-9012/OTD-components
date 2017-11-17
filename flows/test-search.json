@@ -1,12 +1,71 @@
-[{
-    "id": "8705d67d.ad9dc8",
-    "type": "function",
-    "z": "9103b931.05b058",
-    "name": "test",
-    "func": "var newMsg=msg;\nnewMsg.payload={};\nnewMsg.payload.q=\"Transport\";\nnewMsg.payload.resource_id=\"\";\nreturn newMsg;",
-    "outputs": 1,
-    "noerr": 0,
-    "x": 333.5,
-    "y": 178,
-    "wires": [["b886a9e3.5c23a8", "7a1973fe.8fa8d4"]]
-}]
+[
+    {
+        "id": "9103b931.05b058",
+        "type": "tab",
+        "label": "Flow 1"
+    },
+    {
+        "id": "a0eec8b9.c0832",
+        "type": "function",
+        "z": "9103b931.05b058",
+        "name": "test",
+        "func": "var newMsg=msg;\nnewMsg.payload={};\nnewMsg.payload.q=\"Transport\";\nnewMsg.payload.resource_id=\"\";\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 262,
+        "y": 129,
+        "wires": [
+            [
+                "4e696b8b.0c2734"
+            ]
+        ]
+    },
+    {
+        "id": "d188ba58.fe186",
+        "type": "inject",
+        "z": "9103b931.05b058",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 101.5,
+        "y": 69,
+        "wires": [
+            [
+                "a0eec8b9.c0832"
+            ]
+        ]
+    },
+    {
+        "id": "4d68475a.7dbe7",
+        "type": "debug",
+        "z": "9103b931.05b058",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 581.5,
+        "y": 233,
+        "wires": []
+    },
+    {
+        "id": "4e696b8b.0c2734",
+        "type": "ckan-search",
+        "z": "9103b931.05b058",
+        "name": "ckan",
+        "url": "78.91.98.234",
+        "port": "5000",
+        "resource_id": "",
+        "q": "",
+        "x": 418.5,
+        "y": 200,
+        "wires": [
+            [
+                "4d68475a.7dbe7"
+            ]
+        ]
+    }
+]
