@@ -15,7 +15,8 @@
     },
     "node-red": {
         "nodes": {
-            "ckan-search": "./ruter.js"
+            "ruter-lines": "./ruter-lines.js",
+            "ruter-stops": "./ruter-stops.js"
         }
     }
 }
