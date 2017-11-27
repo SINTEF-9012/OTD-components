@@ -1,0 +1,101 @@
+<script type="text/x-red" data-template-name="ruter-stops">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <br/>
+
+    <div class="form-row">
+        <label for="node-input-url"><i class="fa fa-tag"></i> URL</label>
+        <input type="text" id="node-input-url" placeholder="URL">
+    </div>
+
+    <br/>
+
+    <div class="form-row">
+        <label for="node-input-port"><i class="fa fa-tag"></i> Port</label>
+        <input type="text" id="node-input-port" placeholder="Port">
+    </div>
+
+    <br/>
+
+    <div class="form-row">
+        <label for="node-input-line_id"><i class="fa fa-tag"></i> Line ID</label>
+        <input type="text" id="node-input-line_id" placeholder="line_id">
+    </div>
+
+    <br/>
+
+    <div class="form-row">
+        <label for="node-input-stop-id"><i class="fa fa-tag"></i> Stop id</label>
+        <input type="text" id="node-input-stop-id" placeholder="stop_id">
+    </div>
+
+    <br/>
+
+    <div class="form-row">
+        <label for="node-input-datetime"><i class="fa fa-tag"></i> Datetime</label>
+        <input type="text" id="node-input-datetime" placeholder="datetime">
+    </div>
+
+    <br/>
+
+    <div class="form-row">
+        <label for="node-input-ttype"><i class="fa fa-tag"></i> Transport type</label>
+        <input type="text" id="node-input-ttype" placeholder="ttype">
+    </div>
+
+    <br/>
+
+    <div class="form-row">
+        <label for="node-input-linenames"><i class="fa fa-tag"></i> Linenames</label>
+        <input type="text" id="node-input-linenames" placeholder="linenames">
+    </div>
+</script>
+
+<!-- Next, some simple help text is provided for the node.                   -->
+<script type="text/x-red" data-help-name="ckan-search">
+    <p>This component can be used to retrieve information about lines from the reisapi delivered by Ruter.</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ruter-stops', {
+        category: 'OTD',
+        defaults: {
+            name: {
+                value: ""
+            },
+            url: {
+                value: ""
+            },
+            port: {
+                value: ""
+            },
+            line_id: {
+                value: ""
+            },
+            stop_id: {
+                value: ""
+            },
+            datetime: {
+                value: ""
+            },
+            ttype: {
+                value: ""
+            },
+            linenames: {
+                value: ""
+            }
+        },
+        inputs: 1,
+        outputs: 1,
+        color: "#FFFFFF",
+        label: function () {
+            return this.name || " Stop-reisapi node ";
+        },
+        labelStyle: function () {
+            return this.name ? "node_label_italic" : "";
+        }
+    });
+</script>
