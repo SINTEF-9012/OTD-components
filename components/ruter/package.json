@@ -1,10 +1,10 @@
 {
-    "name": "node-red-ckan",
-    "version": "1.0.0",
+    "name": "node-red-reisapi",
+    "version": "0.0.1",
     "description": "components to interact with the RUTER API",
-    "main": "node-red-ruter.js",
+    "main": "ruter-lines.js",
     "keywords": [
-    "ckan",
+    "ruter",
     "nodered"
   ],
     "author": "SINTEF-9012",
