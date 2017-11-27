@@ -1,0 +1,43 @@
+[{
+    "id": "80692f6b.50ffc",
+    "type": "tab",
+    "label": "Flow 1"
+}, {
+    "id": "33b3f011.b9f41",
+    "type": "inject",
+    "z": "80692f6b.50ffc",
+    "name": "",
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 140.5,
+    "y": 72,
+    "wires": [["cd98916d.bab7a8"]]
+}, {
+    "id": "af811eba.7a67f8",
+    "type": "debug",
+    "z": "80692f6b.50ffc",
+    "name": "",
+    "active": true,
+    "console": "false",
+    "complete": "true",
+    "x": 586.5,
+    "y": 112,
+    "wires": []
+}, {
+    "id": "cd98916d.bab7a8",
+    "type": "ruter-stops",
+    "z": "80692f6b.50ffc",
+    "name": "stops",
+    "line_id": "",
+    "stop_id": "2190070",
+    "datetime": "",
+    "ttype": "metro",
+    "linenames": "",
+    "x": 365.5,
+    "y": 188,
+    "wires": [["af811eba.7a67f8"]]
+}]
