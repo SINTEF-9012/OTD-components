@@ -4,10 +4,9 @@ module.exports = function (RED) {
 
     function sendGet(path, callback) {
         var options = {
-            host: "https://reisapi.ruter.no/",
+            host: "reisapi.ruter.no",
             path: path,
-            port: port,
-            method: GET
+            method: "GET"
         };
 
         var req = http.request(options, function (response) {
@@ -49,7 +48,7 @@ module.exports = function (RED) {
                 //TBD
             } else {
                 if (node.line_id !== undefined && node.line_id !== "") {
-                    sendGet("Line/GetStopsByLineId/" + node.line_id, function (res) {
+                    sendGet("/Line/GetStopsByLineId/" + node.line_id, function (res) {
                         node.send(res);
                     });
                 }
@@ -76,7 +75,7 @@ module.exports = function (RED) {
                         path += "linenames=" + node.linenames;
                     }
 
-                    sendGet("StopVisit/GetDepartures/" + node.stop_id + path, function (res) {
+                    sendGet("/StopVisit/GetDepartures/" + node.stop_id + path, function (res) {
                         node.send(res);
                     });
                 }
@@ -85,5 +84,5 @@ module.exports = function (RED) {
 
     }
 
-    RED.nodes.registerType("ruter-lines", RuterLines);
+    RED.nodes.registerType("ruter-stops", RuterStops);
 }

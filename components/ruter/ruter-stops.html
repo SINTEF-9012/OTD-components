@@ -7,20 +7,6 @@
     <br/>
 
     <div class="form-row">
-        <label for="node-input-url"><i class="fa fa-tag"></i> URL</label>
-        <input type="text" id="node-input-url" placeholder="URL">
-    </div>
-
-    <br/>
-
-    <div class="form-row">
-        <label for="node-input-port"><i class="fa fa-tag"></i> Port</label>
-        <input type="text" id="node-input-port" placeholder="Port">
-    </div>
-
-    <br/>
-
-    <div class="form-row">
         <label for="node-input-line_id"><i class="fa fa-tag"></i> Line ID</label>
         <input type="text" id="node-input-line_id" placeholder="line_id">
     </div>
@@ -28,8 +14,8 @@
     <br/>
 
     <div class="form-row">
-        <label for="node-input-stop-id"><i class="fa fa-tag"></i> Stop id</label>
-        <input type="text" id="node-input-stop-id" placeholder="stop_id">
+        <label for="node-input-stop_id"><i class="fa fa-tag"></i> Stop id</label>
+        <input type="text" id="node-input-stop_id" placeholder="stop_id">
     </div>
 
     <br/>
@@ -55,8 +41,8 @@
 </script>
 
 <!-- Next, some simple help text is provided for the node.                   -->
-<script type="text/x-red" data-help-name="ckan-search">
-    <p>This component can be used to retrieve information about lines from the reisapi delivered by Ruter.</p>
+<script type="text/x-red" data-help-name="ruter-stops">
+    <p>This component can be used to retrieve information about stops from the reisapi delivered by Ruter.</p>
 </script>
 
 <script type="text/javascript">
@@ -64,12 +50,6 @@
         category: 'OTD',
         defaults: {
             name: {
-                value: ""
-            },
-            url: {
-                value: ""
-            },
-            port: {
                 value: ""
             },
             line_id: {
