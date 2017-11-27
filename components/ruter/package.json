@@ -1,0 +1,21 @@
+{
+    "name": "node-red-ckan",
+    "version": "1.0.0",
+    "description": "components to interact with the RUTER API",
+    "main": "node-red-ruter.js",
+    "keywords": [
+    "ckan",
+    "nodered"
+  ],
+    "author": "SINTEF-9012",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SINTEF-9012/OTD-components.git"
+    },
+    "node-red": {
+        "nodes": {
+            "ckan-search": "./ruter.js"
+        }
+    }
+}
