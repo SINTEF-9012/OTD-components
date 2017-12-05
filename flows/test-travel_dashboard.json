@@ -1,0 +1,158 @@
+[{
+    "id": "433e13b6.46e774",
+    "type": "tab",
+    "label": "Flow 1"
+}, {
+    "id": "39a52f86.67c9f8",
+    "type": "ruter-travel",
+    "z": "433e13b6.46e774",
+    "name": "Find Travels",
+    "from": "3010011",
+    "to": "2190070",
+    "isafter": true,
+    "datetime": "",
+    "ttype": "",
+    "proposals": 5,
+    "linenames": "",
+    "x": 237.5,
+    "y": 145,
+    "wires": [["4d4e8f6a.2f31c8", "521cfca9.458794", "86685a9d.732db"]]
+}, {
+    "id": "4d4e8f6a.2f31c8",
+    "type": "debug",
+    "z": "433e13b6.46e774",
+    "name": "",
+    "active": true,
+    "console": "false",
+    "complete": "true",
+    "x": 482.5,
+    "y": 76,
+    "wires": []
+}, {
+    "id": "57504c8.c0881b4",
+    "type": "ui_text",
+    "z": "433e13b6.46e774",
+    "group": "f384b069.148298",
+    "order": 0,
+    "width": 0,
+    "height": 0,
+    "name": "",
+    "label": "ShortestTravelTime",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "x": 669.5,
+    "y": 166,
+    "wires": []
+}, {
+    "id": "521cfca9.458794",
+    "type": "function",
+    "z": "433e13b6.46e774",
+    "name": "filter_TravelTime",
+    "func": "var obj=JSON.parse(msg.payload);\nvar result={};\nvar i;\nvar min=obj.TravelProposals[0].TotalTravelTime;\nvar props=obj.TravelProposals;\nfor(i in props){\n    if(Date.parse(props[i].TotalTravelTime) < Date.parse(min)){\n        min=props[i].TotalTravelTime;\n    }\n}\nresult.payload=min;\nreturn result;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 450.5,
+    "y": 170,
+    "wires": [["57504c8.c0881b4"]]
+}, {
+    "id": "416a812d.1962",
+    "type": "ruter-allstops",
+    "z": "433e13b6.46e774",
+    "name": "",
+    "x": 262.5,
+    "y": 319,
+    "wires": [["a306c9d0.581d08"]]
+}, {
+    "id": "93be045d.0b4dc8",
+    "type": "inject",
+    "z": "433e13b6.46e774",
+    "name": "",
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "x": 124.5,
+    "y": 392,
+    "wires": [["416a812d.1962"]]
+}, {
+    "id": "a306c9d0.581d08",
+    "type": "json",
+    "z": "433e13b6.46e774",
+    "name": "",
+    "pretty": false,
+    "x": 402.5,
+    "y": 431,
+    "wires": [["2837619d.afa74e"]]
+}, {
+    "id": "2837619d.afa74e",
+    "type": "ui_template",
+    "z": "433e13b6.46e774",
+    "group": "393514b8.112f0c",
+    "name": "",
+    "order": 0,
+    "width": 0,
+    "height": 0,
+    "format": "<h3>Some Form</h3><br/>\n<select id=\"f\">\n    \n</select><br/>\n<select id=\"s\">\n    \n</select><br/><br/>\n\n<button id=\"b\">Go!</button>\n\n<script>\n    (function(scope) {\n        $(\"#b\").on('click', function(){\n            console.log(\">>>>>>>>>>\");\n           var message={};\n           message.payload={};\n            message.payload.from=$(\"#f\").val();\n            message.payload.to=$(\"#s\").val();\n            message.payload.proposals=5;\n            scope.send(message); \n        })\n        \n        scope.$watch('msg.payload', function(data) {\n            var i;\n            for(i in data){\n                $('#s').append('<option value=\"'+data[i].ID+'\">'+data[i].Name+'</option>');\n                $('#f').append('<option value=\"'+data[i].ID+'\">'+data[i].Name+'</option>');\n            }\n        });\n    })(scope);\n</script>",
+    "storeOutMessages": false,
+    "fwdInMessages": false,
+    "templateScope": "local",
+    "x": 561.5,
+    "y": 377,
+    "wires": [["39a52f86.67c9f8"]]
+}, {
+    "id": "434fde.11d5d824",
+    "type": "ui_text",
+    "z": "433e13b6.46e774",
+    "group": "f384b069.148298",
+    "order": 0,
+    "width": 0,
+    "height": 0,
+    "name": "",
+    "label": "LongestTravelTime",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "x": 672.5,
+    "y": 245,
+    "wires": []
+}, {
+    "id": "86685a9d.732db",
+    "type": "function",
+    "z": "433e13b6.46e774",
+    "name": "LongestTravelTime",
+    "func": "var obj=JSON.parse(msg.payload);\nvar result={};\nvar i;\nvar max=obj.TravelProposals[0].TotalTravelTime;\nvar props=obj.TravelProposals;\nfor(i in props){\n    if(Date.parse(props[i].TotalTravelTime) > Date.parse(max)){\n        max=props[i].TotalTravelTime;\n    }\n}\nresult.payload=max;\nreturn result;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 472.5,
+    "y": 229,
+    "wires": [["434fde.11d5d824"]]
+}, {
+    "id": "f384b069.148298",
+    "type": "ui_group",
+    "z": "",
+    "name": "Travel3",
+    "tab": "6fb7f858.5dedd8",
+    "disp": true,
+    "width": "6"
+}, {
+    "id": "393514b8.112f0c",
+    "type": "ui_group",
+    "z": "",
+    "name": "T3",
+    "tab": "e89b7e92.f28c68",
+    "disp": true,
+    "width": "6"
+}, {
+    "id": "6fb7f858.5dedd8",
+    "type": "ui_tab",
+    "name": "Tab 3",
+    "icon": "dashboard",
+    "order": 3
+}, {
+    "id": "e89b7e92.f28c68",
+    "type": "ui_tab",
+    "z": "",
+    "name": "T",
+    "icon": "dashboard"
+}]
