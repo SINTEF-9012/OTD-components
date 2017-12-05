@@ -16,7 +16,9 @@
     "node-red": {
         "nodes": {
             "ruter-lines": "./ruter-lines.js",
-            "ruter-stops": "./ruter-stops.js"
+            "ruter-stops": "./ruter-stops.js",
+            "ruter-travel": "./ruter-travel.js",
+            "ruter-allstops": "./ruter-allstops.js"
         }
     }
 }
