@@ -46,7 +46,18 @@ module.exports = function (RED) {
 
         node.on('input', function (msg) {
             if (msg.topic === 'config') {
-                //TBD
+                node.from = msg.payload.from;
+                node.to = msg.payload.to;
+                node.proposal = msg.payload.proposals;
+            } else if (msg.topic === 'config_and_send') {
+                node.from = msg.payload.from;
+                node.to = msg.payload.to;
+                node.proposal = msg.payload.proposals;
+                sendGet("/Travel/GetTravels" + path, function (res) {
+                    var msg = {};
+                    msg.payload = res;
+                    node.send(msg);
+                });
             } else {
                 if (node.from !== undefined && node.from !== "" && node.to !== undefined && node.to !== "") {
                     let path = "?";
@@ -75,7 +86,9 @@ module.exports = function (RED) {
                     }
 
                     sendGet("/Travel/GetTravels" + path, function (res) {
-                        node.send(res);
+                        var msg = {};
+                        msg.payload = res;
+                        node.send(msg);
                     });
                 }
             }
