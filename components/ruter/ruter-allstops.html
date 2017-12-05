@@ -1,0 +1,31 @@
+<script type="text/x-red" data-template-name="ruter-stops">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<!-- Next, some simple help text is provided for the node.                   -->
+<script type="text/x-red" data-help-name="ruter-stops">
+    <p>This component can be used to retrieve information about stops from the reisapi delivered by Ruter.</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('ruter-allstops', {
+        category: 'OTD',
+        defaults: {
+            name: {
+                value: ""
+            }
+        },
+        inputs: 1,
+        outputs: 1,
+        color: "#FFFFFF",
+        label: function () {
+            return this.name || " AllStop-reisapi node ";
+        },
+        labelStyle: function () {
+            return this.name ? "node_label_italic" : "";
+        }
+    });
+</script>
