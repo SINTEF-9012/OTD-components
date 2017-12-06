@@ -55,7 +55,7 @@ module.exports = function (RED) {
 
 
                 if (node.stop_id !== undefined && node.stop_id !== "") {
-                    let path = "?";
+                    var path = "?";
                     if (node.datetime !== undefined && node.datetime !== "") {
                         if (path.length > 1) {
                             path += "&";

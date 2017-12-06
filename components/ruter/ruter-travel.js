@@ -60,7 +60,7 @@ module.exports = function (RED) {
                 });
             } else {
                 if (node.from !== undefined && node.from !== "" && node.to !== undefined && node.to !== "") {
-                    let path = "?";
+                    var path = "?";
                     path += "fromplace=" + node.from + "&toplace=" + node.to;
 
                     if (node.datetime !== undefined && node.datetime !== "") {
