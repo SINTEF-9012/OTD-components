@@ -1,4 +1,4 @@
-<script type="text/x-red" data-template-name="ruter-stops">
+<script type="text/x-red" data-template-name="ruter-allstops">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
@@ -6,8 +6,8 @@
 </script>
 
 <!-- Next, some simple help text is provided for the node.                   -->
-<script type="text/x-red" data-help-name="ruter-stops">
-    <p>This component can be used to retrieve information about stops from the reisapi delivered by Ruter.</p>
+<script type="text/x-red" data-help-name="ruter-allstops">
+    <p></p>
 </script>
 
 <script type="text/javascript">
@@ -20,6 +20,7 @@
         },
         inputs: 1,
         outputs: 1,
+        icon: "hash.png",
         color: "#FFFFFF",
         label: function () {
             return this.name || " AllStop-reisapi node ";

@@ -15,7 +15,7 @@
 
     <div class="form-row">
         <label for="node-input-stop_id"><i class="fa fa-tag"></i> Stop ID</label>
-        <input type="text" id="node-input-stop_id" placeholder="stop_id">
+        <input type="text" id="node-input-stop_<id" placeholder="stop_id">
     </div>
 </script>
 
@@ -41,6 +41,7 @@
         inputs: 1,
         outputs: 1,
         color: "#FFFFFF",
+        icon: "hash.png",
         label: function () {
             return this.name || " Line-reisapi node ";
         },
