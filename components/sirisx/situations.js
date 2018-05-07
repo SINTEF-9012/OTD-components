@@ -43,14 +43,19 @@ module.exports = function (RED) {
                     }
                 }
                 if ('stopPlaces' in situation['affects']) {
-                    var stop_places = situation['affects']['stopPlaces']
+                    var stop_places = situation['affects']['stopPlaces'];
                     for (var j = 0; j < stop_places.length; j++) {
                         var stop_ref = stop_places[j]['stopPlaceRef'];
                         for (var k = 0; k < stops_route.length; k++) {
                             var stop = stops_route[k];
                             if (stop == stop_ref) {
                                 var s_json = {};
-                                var stop_sarray = stop_ref in stops ? stops['stopPlaceRef'] : [];
+                                console.log(stop_ref);
+                                console.log("STOPS" + JSON.stringify(stops));
+                                console.log(stop_ref in stops);
+                                console.log(stops['stopPlaceRef']);
+                                var stop_sarray = (stop_ref in stops) ? stops[stop_ref] : [];
+                                console.log(stop_sarray);
                                 s_json['stopPlaceRef'] = stop_ref;
                                 s_json['summary'] = situation['summary'];
                                 s_json['description'] = situation['description'];
