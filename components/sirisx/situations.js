@@ -50,12 +50,7 @@ module.exports = function (RED) {
                             var stop = stops_route[k];
                             if (stop == stop_ref) {
                                 var s_json = {};
-                                console.log(stop_ref);
-                                console.log("STOPS" + JSON.stringify(stops));
-                                console.log(stop_ref in stops);
-                                console.log(stops['stopPlaceRef']);
                                 var stop_sarray = (stop_ref in stops) ? stops[stop_ref] : [];
-                                console.log(stop_sarray);
                                 s_json['stopPlaceRef'] = stop_ref;
                                 s_json['summary'] = situation['summary'];
                                 s_json['description'] = situation['description'];
