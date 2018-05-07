@@ -36,7 +36,7 @@ module.exports = function (RED) {
         this.line_id = config.line_id;
         this.stop_id = config.stop_id;
         var node = this;
-
+        var retMsg = {};
 
         node.on('input', function (msg) {
             if (msg.topic === 'config') {
@@ -45,19 +45,22 @@ module.exports = function (RED) {
                 //get lines by stop_id
                 if (node.stop_id !== undefined && node.stop_id !== "") {
                     sendGet("/Line/GetLinesByStopID/" + node.stop_id, function (res) {
-                        node.send(res);
+                        retMsg.payload = res;
+                        node.send(retMsg);
                     });
                 }
                 if (node.line_id !== undefined && node.line_id !== "") {
                     //get data by line id
                     sendGet("/Line/GetDataByLineID/" + node.line_id, function (res) {
-                        node.send(res);
+                        retMsg.payload = res;
+                        node.send(retMsg);
                     });
                 }
                 if ((node.line_id === undefined || node.line_id === "") && (node.stop_id === undefined || node.stop_id === "")) {
                     //get lines
                     sendGet("/Line/GetLines", function (res) {
-                        node.send(res);
+                        retMsg.payload = res;
+                        node.send(retMsg);
                     });
                 }
 
